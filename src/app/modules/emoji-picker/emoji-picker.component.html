@@ -1,2 +1,14 @@
-<div name="ep-input" id="ep-input" #epInput contenteditable="true" [textContent]="value" (input)="value=epInput.textContent"></div>
-{{ 140 - value.length }} {{ value }}
+<div class="container">
+  <div
+    class="ep-input"
+    id="ep-input"
+    #epInput
+    contenteditable="true"
+    [textContent]="value"
+    (input)="value=epInput.textContent">
+    <div class="picker">🙂</div>
+  </div>
+  <div class="footer">
+    {{ 140 - value.length }} {{ value }}
+  </div>
+</div>
