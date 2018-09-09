@@ -1,14 +1,19 @@
-<div class="container">
-  <div
-    class="ep-input"
-    id="ep-input"
-    #epInput
-    contenteditable="true"
-    [textContent]="value"
-    (input)="value=epInput.textContent">
-    <div class="picker">🙂</div>
+<div class="ep-container">
+  <div class="ep-input-container" [ngClass]="focusClass">
+    <div
+      class="ep-input"
+      id="ep-input"
+      #epInput
+      contenteditable="true"
+      (input)="value=epInput.innerText"
+      (focus)="focusClass = 'focus'"
+      (blur)="focusClass = 'no-focus'">
+    </div>
+    <div class="ep-picker"><button (click)="insertEmoji()" class="ep-picker-button"></button></div>
   </div>
-  <div class="footer">
-    {{ 140 - value.length }} {{ value }}
-  </div>
+  <footer class="ep-footer">
+    <div class="ep-counter">
+      {{ 140 - value.length }}
+    </div>
+  </footer>
 </div>
