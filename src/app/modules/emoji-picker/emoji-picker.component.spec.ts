@@ -8,9 +8,9 @@ describe('EmojiPickerComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EmojiPickerComponent ]
+      declarations: [EmojiPickerComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
@@ -21,5 +21,16 @@ describe('EmojiPickerComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('insertEmoji()', () => {
+    const emoji = 'CONTENIDO';
+    component.epInput.nativeElement.innerText = 'test';
+    component.insertEmoji();
+    expect(component.epInput.nativeElement.innerText).toBe(emoji + 'test');
+
+    spyOn(window, 'getSelection').and.returnValue({rangeCount: false});
+    component.insertEmoji();
+    expect(component.epInput.nativeElement.innerText).toBe(emoji + 'test');
   });
 });

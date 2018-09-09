@@ -32,8 +32,6 @@
 }
 
 .ep-picker {
-  width: 64px;
-  height: 64px;
   padding: 0.4em;
   color: #555;
 }
@@ -43,12 +41,15 @@
 }
 
 .ep-picker-button {
-  width: 16px;
-  height: 16px;
-  position: relative;
-  background-image: url("https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/64.png");
-  background-position: 10px 0px;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  padding: 0;
+  background-color: rgba(0,0,0,0);
+  background-image: url("https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/20.png");
+  background-position: -682px -836px;
   background-repeat: no-repeat;
+  border: 0px;
 }
 
 .ep-counter {
