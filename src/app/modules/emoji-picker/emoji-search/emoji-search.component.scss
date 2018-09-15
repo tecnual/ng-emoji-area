@@ -1,0 +1,22 @@
+.ep-search-emojis-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ep-emoji {
+  margin: 0px;
+  background-color: #3a3;
+  text-align: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  background-color: rgba(0,0,0,0);
+  background-image: url("https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/32.png");
+  background-repeat: no-repeat;
+  border: 0px;
+  transition: transform .2s; /* Animation */
+  transform: scale(0.7);
+}
+.ep-emoji:hover {
+    transform: scale(1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}

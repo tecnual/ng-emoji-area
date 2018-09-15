@@ -7,9 +7,16 @@
       contenteditable="true"
       (input)="value=epInput.innerText"
       (focus)="focusClass = 'focus'"
-      (blur)="focusClass = 'no-focus'">
+      (blur)="focusClass = 'no-focus'; inputFocusOut()"
+      (click)="this.hidePicker = true"
+      >
     </div>
-    <div class="ep-picker"><button (click)="insertEmoji()" class="ep-picker-button"></button></div>
+    <div class="ep-button-container"><button id="ep-picker-button" (click)="openEmojiPicker()" class="ep-picker-button"></button></div>
+    <div class="ep-picker-container">
+        <div class="item-dropdown" [hidden]="hidePicker">
+          <app-emoji-search #epEmojiSearch (reciveEmoji)="insertEmoji(epEmojiSearch.emoji)"></app-emoji-search>
+        </div>
+    </div>
   </div>
   <footer class="ep-footer">
     <div class="ep-counter">

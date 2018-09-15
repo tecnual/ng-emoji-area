@@ -8,6 +8,17 @@
             "camelCase"
         ],
         "semicolon": [true, "always"],
+        "no-console": {
+            "severity": "warning",
+            "options": [
+                "debug",
+                "info",
+                "log",
+                "time",
+                "timeEnd",
+                "trace"
+            ]
+        },
         "component-selector": [
             true,
             "element",

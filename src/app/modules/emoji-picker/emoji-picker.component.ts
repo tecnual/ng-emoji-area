@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Input, Output, ElementRef, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-emoji-picker',
@@ -12,46 +12,57 @@ export class EmojiPickerComponent implements OnInit {
   @Input() maxlength: number;
   @ViewChild('epInput') epInput: ElementRef;
 
-  value = '';
   focusClass = 'no-focus';
+  hidePicker = true;
+  value = '';
+  sel: Selection;
+  range: Range;
 
   constructor() { }
 
   ngOnInit() {
-    if (typeof this.cols === 'undefined') {
-      this.cols = 100;
-    }
   }
 
-  insertEmoji() {
+  insertEmoji(emoji) {
     this.epInput.nativeElement.focus();
-    const algo = 'CONTENIDO';
-    let sel, range;
+
         // IE9 and non-IE
-    sel = window.getSelection();
-    if (sel.getRangeAt && sel.rangeCount) {
-        range = sel.getRangeAt(0);
-        range.deleteContents();
+    if (this.sel.getRangeAt && this.sel.rangeCount) {
 
         // Range.createContextualFragment() would be useful here but is
         // non-standard and not supported in all browsers (IE9, for one)
-        const el = document.createElement('div');
-        el.innerHTML = algo;
-        const frag = document.createDocumentFragment();
-        let node, lastNode;
-        lastNode = false;
-        while ( (node = el.firstChild) ) {
-            lastNode = frag.appendChild(node);
-            console.log('lastNode', lastNode);
-        }
-        range.insertNode(frag);
+        const emojiEl = document.createElement('span');
+        const codePoint = parseInt(emoji.unified, 16);
+        emojiEl.innerHTML = String.fromCodePoint(codePoint);
+        emojiEl.style.backgroundImage = 'url("https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/16.png")';
+        emojiEl.style.width = '18px';
+        emojiEl.style.height = '18px';
+        emojiEl.style.backgroundPosition = (emoji.sheet[0] * -18) + 'px ' + (emoji.sheet[1] * -18) + 'px';
+        emojiEl.style.backgroundColor = 'rgba(0,0,0,0)';
+        emojiEl.style.color = 'rgba(0,0,0,0)';
+        emojiEl.style.marginRight = '2px';
+        emojiEl.contentEditable = 'false';
+        emojiEl.title = emoji.name;
 
-        range = range.cloneRange();
-        range.setStartAfter(lastNode);
-        range.collapse(true);
-        sel.removeAllRanges();
-        sel.addRange(range);
+        const frag = document.createDocumentFragment();
+        frag.appendChild(emojiEl);
+        this.range.insertNode(frag);
+        this.sel.removeAllRanges();
+        this.range = this.range.cloneRange();
+        this.range.setStartBefore(emojiEl.nextSibling);
+        this.range.collapse(true);
+        this.sel.addRange(this.range);
     }
     this.value = this.epInput.nativeElement.innerText;
+  }
+
+  openEmojiPicker() {
+    this.hidePicker = !this.hidePicker;
+  }
+
+  inputFocusOut() {
+    this.sel = window.getSelection();
+    this.range = this.sel.getRangeAt(0);
+    this.range.deleteContents();
   }
 }

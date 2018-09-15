@@ -1,0 +1,12 @@
+Search
+{{ emojis.length }}
+<div class="ep-search-emojis-container">
+  <div
+    class="ep-emoji"
+    *ngFor="let emoji of emojis"
+    [title]="emoji.name"
+    [ngStyle]="{'background-position':(emoji.sheet[0] * -34) + 'px ' + (emoji.sheet[1] * -34) + 'px'}"
+    (click)="insertEmoji(emoji)"
+  >
+  </div>
+</div>

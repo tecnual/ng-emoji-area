@@ -3,10 +3,11 @@
   flex-direction: column;
   justify-content: space-around;
 }
+
 .ep-input-container {
   display: flex;
   justify-content: center;
-  width: 400px;
+  width: 300px;
   border: 2px solid #bcc;
   border-radius: 0.4em;
 }
@@ -24,19 +25,21 @@
 }
 
 #ep-input {
-  padding: 0.4em;
+  margin: 0.5em;
   width: 100%;
   height: 100px;
   outline: none !important;
   max-width: 400px;
+  overflow: auto;
 }
 
-.ep-picker {
-  padding: 0.4em;
+.ep-button-container {
+  padding: 0.2em;
   color: #555;
+  position: relative;
 }
 
-.ep-picker:hover{
+.ep-button-container:hover{
   color: #000;
 }
 
@@ -52,6 +55,16 @@
   border: 0px;
 }
 
+.ep-picker {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  text-align: center;
+  width: 75px;
+  height: 375px;
+  background-color: #AFA;
+}
+
 .ep-counter {
  display: flex;
  justify-content: flex-end;
@@ -59,4 +72,23 @@
 
 .ep-footer {
   padding-right: 0.5em;
+}
+
+.ep-picker-container {
+    display: flex;
+    flex-flow: row wrap;
+    position: relative;
+    text-align: center;
+}
+
+.item-dropdown {
+    width: 240px;
+    background: white;
+    border: 2px solid #bcc;
+    border-radius: 0.4em;
+    position: absolute;
+    right: 0;
+    top: 32px;
+    z-index: 1;
+    padding: 5px;
 }
