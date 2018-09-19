@@ -53,16 +53,7 @@
   background-position: -682px -836px;
   background-repeat: no-repeat;
   border: 0px;
-}
-
-.ep-picker {
-  display: flex;
-  flex-flow: row wrap;
-  position: relative;
-  text-align: center;
-  width: 75px;
-  height: 375px;
-  background-color: #AFA;
+  outline: none !important;
 }
 
 .ep-counter {
@@ -82,7 +73,7 @@
 }
 
 .item-dropdown {
-    width: 240px;
+    width: 250px;
     background: white;
     border: 2px solid #bcc;
     border-radius: 0.4em;

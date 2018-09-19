@@ -40,7 +40,7 @@ export class EmojiPickerComponent implements OnInit {
         emojiEl.style.backgroundPosition = (emoji.sheet[0] * -18) + 'px ' + (emoji.sheet[1] * -18) + 'px';
         emojiEl.style.backgroundColor = 'rgba(0,0,0,0)';
         emojiEl.style.color = 'rgba(0,0,0,0)';
-        emojiEl.style.marginRight = '2px';
+        emojiEl.style.paddingRight = '2px';
         emojiEl.contentEditable = 'false';
         emojiEl.title = emoji.name;
 

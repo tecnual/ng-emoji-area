@@ -1,8 +1,16 @@
 import { EmojiCategory } from './data.interfaces';
-export const categories: EmojiCategory[] = [
+export const Categories: EmojiCategory[] = [
   {
     id: 'people',
     name: 'Smileys & People',
+    emoji: {
+        name: 'Slightly Smiling Face',
+        unified: '1F642',
+        emoticons: [':)', '(:', ':-)'],
+        keywords: ['face', 'smile'],
+        sheet: [31, 38],
+        shortName: 'slightly_smiling_face'
+      },
     emojis: [
       '1F600',
       '1F601',
@@ -456,6 +464,18 @@ export const categories: EmojiCategory[] = [
   {
     id: 'nature',
     name: 'Animals & Nature',
+    emoji: {
+        name: 'Monkey Face',
+        unified: '1F435',
+        emoticons: [':o)'],
+        keywords: [
+          'animal',
+          'nature',
+          'circus'
+        ],
+        sheet: [13, 31],
+        shortName: 'monkey_face'
+      },
     emojis: [
       '1F435',
       '1F412',
@@ -575,6 +595,19 @@ export const categories: EmojiCategory[] = [
   {
     id: 'foods',
     name: 'Food & Drink',
+    emoji: {
+        name: 'Shallow Pan of Food',
+        unified: '1F958',
+        keywords: [
+          'food',
+          'cooking',
+          'casserole',
+          'paella'
+        ],
+        sheet: [42, 4],
+        hidden: ['messenger'],
+        shortName: 'shallow_pan_of_food'
+      },
     emojis: [
       '1F347',
       '1F348',
@@ -683,6 +716,13 @@ export const categories: EmojiCategory[] = [
   {
     id: 'activity',
     name: 'Activities',
+    emoji: {
+        name: 'Soccer Ball',
+        unified: '26BD',
+        keywords: ['sports', 'football'],
+        sheet: [48, 26],
+        shortName: 'soccer'
+      },
     emojis: [
       '1F383',
       '1F384',
@@ -749,6 +789,17 @@ export const categories: EmojiCategory[] = [
   {
     id: 'places',
     name: 'Travel & Places',
+    emoji: {
+        name: 'Oncoming Automobile',
+        unified: '1F698',
+        keywords: [
+          'car',
+          'vehicle',
+          'transportation'
+        ],
+        sheet: [34, 32],
+        shortName: 'oncoming_automobile'
+      },
     emojis: [
       '1F30D',
       '1F30E',
@@ -962,6 +1013,17 @@ export const categories: EmojiCategory[] = [
   {
     id: 'objects',
     name: 'Objects',
+    emoji: {
+        name: 'Electric Light Bulb',
+        unified: '1F4A1',
+        keywords: [
+          'light',
+          'electricity',
+          'idea'
+        ],
+        sheet: [25, 7],
+        shortName: 'bulb'
+      },
     emojis: [
       '1F507',
       '1F508',
@@ -1130,6 +1192,18 @@ export const categories: EmojiCategory[] = [
   {
     id: 'symbols',
     name: 'Symbols',
+    emoji: {
+        name: 'Hash Key',
+        unified: '0023-FE0F-20E3',
+        keywords: [
+          'symbol',
+          'blue-square',
+          'twitter'
+        ],
+        sheet: [0, 0],
+        hidden: ['facebook', 'messenger'],
+        shortName: 'hash'
+      },
     emojis: [
       '1F3E7',
       '1F6AE',
@@ -1341,6 +1415,13 @@ export const categories: EmojiCategory[] = [
   {
     id: 'flags',
     name: 'Flags',
+    emoji: {
+        name: 'Waving White Flag',
+        unified: '1F3F3-FE0F',
+        sheet: [12, 15],
+        hidden: ['messenger'],
+        shortName: 'waving_white_flag'
+      },
     emojis: [
       '1F1E6-1F1E8',
       '1F1E6-1F1E9',

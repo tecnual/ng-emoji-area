@@ -3,6 +3,7 @@ import { Emoji } from './emoji.interface';
 export interface EmojiCategory {
   id: string;
   name: string;
+  emoji: CompressedEmojiData;
   emojis: any[] | null;
   anchor?: boolean;
   first?: boolean;

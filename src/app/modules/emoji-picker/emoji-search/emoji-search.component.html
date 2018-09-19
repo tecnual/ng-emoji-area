@@ -1,12 +1,42 @@
-Search
-{{ emojis.length }}
-<div class="ep-search-emojis-container">
-  <div
-    class="ep-emoji"
-    *ngFor="let emoji of emojis"
-    [title]="emoji.name"
-    [ngStyle]="{'background-position':(emoji.sheet[0] * -34) + 'px ' + (emoji.sheet[1] * -34) + 'px'}"
-    (click)="insertEmoji(emoji)"
-  >
+<h3>Search</h3>
+<main>
+  <div *ngFor="let category of categories; let first = first" class="tab">
+    <input
+      [id]="'tab-' + category.id"
+      type="radio"
+      name="tabs"
+      [value]="first ? true : false"
+      (click)="visibleCategory = category.id"
+      [checked]="first"
+    >
+    <label [for]="'tab-' + category.id" [title]="category.name">
+      <div
+        class="ep-emoji-category"
+        [ngStyle]="{'background-position':(category.emoji.sheet[0] * -22) + 'px ' + (category.emoji.sheet[1] * -22) + 'px'}"
+      ></div>
+    </label>
   </div>
-</div>
+
+  <section
+    *ngFor="let emojisCategory of emojisByCategory"
+    [hidden]="!(visibleCategory == emojisCategory.id)"
+  >
+    <h3>{{ emojisCategory.name }}</h3>
+    <div class="ep-search-emojis-container">
+      <div
+        class="ep-emoji"
+        *ngFor="let emoji of emojisCategory.emojis"
+        [title]="emoji.name"
+        [ngStyle]="{'background-position':(emoji.sheet[0] * -34) + 'px ' + (emoji.sheet[1] * -34) + 'px'}"
+        (click)="insertEmoji(emoji)"
+      >
+      </div>
+    </div>
+  </section>
+
+
+  <section id="content1">
+
+  </section>
+
+</main>
