@@ -1,15 +1,28 @@
 import { Emoji } from './emoji.interface';
 
-export interface EmojiCategory {
+export interface EmojisData {
   id: string;
   name: string;
-  emoji: CompressedEmojiData;
+  emoji: {
+    name: string;
+    unified: string;
+    shortName: string;
+    shortNames?: string[];
+    sheet: [number, number];
+    keywords?: string[];
+    hidden?: string[];
+    emoticons?: string[];
+    text?: string;
+    skinVariations?: EmojiVariation[];
+    obsoletedBy?: string;
+    obsoletes?: string;
+  };
   emojis: any[] | null;
   anchor?: boolean;
   first?: boolean;
 }
 
-export interface CompressedEmojiData {
+export interface Emoji {
   name: string;
   unified: string;
   shortName: string;

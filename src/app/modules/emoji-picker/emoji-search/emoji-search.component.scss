@@ -63,8 +63,14 @@ main {
   background: #fff;
 }
 
-section {
-  padding: 20px 0 0;
+.ep-section {
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.ep-section h4 {
+  text-align: left;
+  padding: 5px 0px 10px 5px;
   margin: 0 auto;
 }
 

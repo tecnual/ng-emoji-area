@@ -1,5 +1,5 @@
-import { EmojiCategory } from './data.interfaces';
-export const Categories: EmojiCategory[] = [
+import { EmojisData } from './data.interfaces';
+export const Categories: EmojisData[] = [
   {
     id: 'people',
     name: 'Smileys & People',

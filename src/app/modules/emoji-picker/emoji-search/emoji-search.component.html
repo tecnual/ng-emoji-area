@@ -18,10 +18,11 @@
   </div>
 
   <section
-    *ngFor="let emojisCategory of emojisByCategory"
+    class="ep-section"
+    *ngFor="let emojisCategory of emojis"
     [hidden]="!(visibleCategory == emojisCategory.id)"
   >
-    <h3>{{ emojisCategory.name }}</h3>
+    <h4>{{ emojisCategory.name }}</h4>
     <div class="ep-search-emojis-container">
       <div
         class="ep-emoji"
