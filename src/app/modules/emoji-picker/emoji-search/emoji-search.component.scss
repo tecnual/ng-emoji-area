@@ -1,8 +1,6 @@
 .ep-search-emojis-container {
   display: flex;
   flex-wrap: wrap;
-  height: 150px;
-  overflow-y: scroll;
 }
 
 .ep-emoji {
@@ -36,6 +34,7 @@
 
 .ep-emoji:hover{
     transform: scale(1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+    cursor: grab;
 }
 
 *, *:before, *:after {
@@ -68,20 +67,17 @@ main {
   flex-direction: column;
 }
 
-.ep-section h4 {
+.ep-section h5 {
   text-align: left;
   padding: 5px 0px 10px 5px;
   margin: 0 auto;
 }
 
-#content1 {
-  display: none;
-}
-input {
+.ep-input-tab {
   display: none;
 }
 
-label {
+.ep-label-tab {
   display: inline-block;
   font-weight: 600;
   text-align: center;
@@ -91,20 +87,12 @@ label {
   border-bottom: 1px solid #ddd;
 }
 
-label:before {
-  font-family: fontawesome;
-  font-weight: normal;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-label:hover {
+.ep-label-tab:hover {
   color: #888;
   cursor: pointer;
 }
 
-
-input:checked + label {
+.ep-input-tab:checked + .ep-label-tab {
   color: #555;
   border: 1px solid #ddd;
   border-bottom: 2px solid orange;
@@ -112,4 +100,22 @@ input:checked + label {
 
 .tab {
   display: inline-block;
+}
+
+.ep-search-input {
+  margin: 10px auto;
+  border: 2px solid #bcc;
+  border-radius: 2px;
+  padding: 5px 10px 5px 10px;
+}
+
+.ep-search-input:focus {
+  outline: none !important;
+  border: 2px solid #099;
+  box-shadow: 0 0 20px #719ECE;
+}
+
+.ep-categories-container {
+  max-height: 250px;
+  overflow-y: scroll;
 }

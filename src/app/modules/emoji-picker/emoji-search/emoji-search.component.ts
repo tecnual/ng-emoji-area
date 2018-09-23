@@ -1,8 +1,10 @@
-import { Component, OnInit, Output, EventEmitter} from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 import { Emojis } from '../lib/emojis';
 import { Categories } from '../lib/categories';
 import { EmojisData, Emoji } from '../lib/data.interfaces';
+
+import * as _ from 'underscore';
 
 @Component({
   selector: 'app-emoji-search',
@@ -10,25 +12,41 @@ import { EmojisData, Emoji } from '../lib/data.interfaces';
   styleUrls: ['./emoji-search.component.scss']
 })
 export class EmojiSearchComponent implements OnInit {
-  // emojis = Emojis;
   @Output() reciveEmoji = new EventEmitter<string>();
 
-  emojis = Emojis;
+  readonly emojis = Emojis;
   categories = Categories;
   value: string;
   emoji: Emoji;
   visibleCategory = 'people';
+  filteredEmojis = Emojis;
 
-  constructor(
+  constructor() { }
 
-  ) {
-  }
-
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   insertEmoji(emoji) {
     this.emoji = emoji;
     this.reciveEmoji.emit(emoji);
+  }
+
+  scrollTo(category) {
+    document.location.hash = '#cat-' + category;
+  }
+
+  filterEmojis(searchTerm) {
+    this.filteredEmojis = [];
+    JSON.parse(JSON.stringify(this.emojis)).forEach( cat => {
+      const emojisInCat = cat.emojis.filter(elem => {
+        if (elem.keywords) {
+          // console.log('elem.keywords.includes(searchTerm)', elem.keywords.includes(searchTerm));
+          return elem.keywords.includes(searchTerm);
+        } else {
+          return false;
+        }
+      });
+      cat.emojis = emojisInCat;
+      this.filteredEmojis.push(cat);
+    });
   }
 }
