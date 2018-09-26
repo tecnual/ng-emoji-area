@@ -20,6 +20,7 @@ export class EmojiSearchComponent implements OnInit {
   emoji: Emoji;
   visibleCategory = 'people';
   filteredEmojis = Emojis;
+  onTabChecked: Boolean = false;
 
   constructor() { }
 
@@ -30,14 +31,28 @@ export class EmojiSearchComponent implements OnInit {
     this.reciveEmoji.emit(emoji);
   }
 
-  scrollTo(category) {
-    document.location.hash = '#cat-' + category;
+  scrollTo(categoryId) {
+    this.onTabChecked = true;
+    document.querySelector('#cat-' + categoryId).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+    });
+    setTimeout(() => {
+      this.onTabChecked = false;
+    }, 2000);
+    // document.location.hash = '#cat-' + category;
   }
 
   filterEmojis(searchTerm) {
     this.filteredEmojis = [];
     JSON.parse(JSON.stringify(this.emojis)).forEach( cat => {
       const emojisInCat = cat.emojis.filter(elem => {
+        if (searchTerm === '') {
+          return true;
+        }
+        if (elem.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+          return true;
+        }
         if (elem.keywords) {
           // console.log('elem.keywords.includes(searchTerm)', elem.keywords.includes(searchTerm));
           return elem.keywords.includes(searchTerm);
@@ -47,6 +62,17 @@ export class EmojiSearchComponent implements OnInit {
       });
       cat.emojis = emojisInCat;
       this.filteredEmojis.push(cat);
+    });
+  }
+
+  onScroll(event) {
+    if (this.onTabChecked) {return; }
+    this.categories.forEach((cat) => {
+      const catPosition = document.getElementById('cat-' + cat.id).offsetTop;
+      if (catPosition < event.target.scrollTop + 90) {
+        const elem = document.getElementById('tab-' + cat.id) as HTMLInputElement;
+        elem.checked = true;
+      }
     });
   }
 }

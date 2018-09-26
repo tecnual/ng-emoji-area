@@ -4,18 +4,19 @@
     type="text"
     class="ep-search-input"
     placeholder="Search"
-    (change)="filterEmojis(searchInput.value)"
+    (input)="filterEmojis(searchInput.value)"
   >
 </div>
 <main>
-  <div *ngFor="let category of categories; let first = first" class="tab">
+  <div class="ep-tabs-container">
+  <div *ngFor="let category of categories; let first = first" class="ep-category-tab">
     <input
       [id]="'tab-' + category.id"
       class="ep-input-tab"
       type="radio"
       name="tabs"
       [value]="first ? true : false"
-      (click)="scrollTo(category.name)"
+      (click)="scrollTo(category.id)"
       [checked]="first"
     >
     <label class="ep-label-tab" [for]="'tab-' + category.id" [title]="category.name">
@@ -25,14 +26,21 @@
       ></div>
     </label>
   </div>
-  <div class="ep-categories-container">
+  </div>
+  <div
+    class="ep-categories-container"
+    (scroll)="onScroll($event)"
+  >
   <section
     class="ep-section"
     *ngFor="let emojisCategory of filteredEmojis"
-    [id]="'cat-' + emojisCategory.name"
+    [id]="'cat-' + emojisCategory.id"
     [hidden]="emojisCategory.emojis.length < 1"
   >
-    <h5>{{ emojisCategory.name }}</h5>
+    <header>
+      <h5>{{ emojisCategory.name }}</h5>
+      <span>{{ emojisCategory.emojis.length }}</span>
+    </header>
     <div class="ep-search-emojis-container">
       <div
         class="ep-emoji"
@@ -45,9 +53,4 @@
     </div>
   </section>
   </div>
-
-  <section id="content1">
-
-  </section>
-
 </main>

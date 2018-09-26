@@ -18,29 +18,14 @@
   transform: scale(0.7);
 }
 
-.ep-emoji-category {
-  margin: 0px;
-  background-color: #3a3;
-  text-align: center;
-  width: 22px;
-  height: 22px;
-  background-color: rgba(0,0,0,0);
-  background-image: url("https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/20.png");
-  background-repeat: no-repeat;
-  border: none;
-  transition: transform .2s; /* Animation */
-  transform: scale(1);
-}
-
 .ep-emoji:hover{
-    transform: scale(1); /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
-    cursor: grab;
+    transform: scale(1);
+    cursor: pointer;
 }
 
-*, *:before, *:after {
+main {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
 }
 
 h1 {
@@ -54,37 +39,52 @@ p {
   line-height: 1.5;
 }
 
-main {
-  min-width: 250px;
-  max-width: 320px;
-  padding: 0px;
-  margin: 0 auto;
-  background: #fff;
-}
-
 .ep-section {
   margin: 0 auto;
   flex-direction: column;
 }
 
+.ep-section header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .ep-section h5 {
-  text-align: left;
+  margin: 0;
   padding: 5px 0px 10px 5px;
-  margin: 0 auto;
+}
+
+.ep-section span {
+  vertical-align: middle;
+  color: #777;
+  font-size: .70em;
+  padding: 5px 10px 10px 5px;
 }
 
 .ep-input-tab {
   display: none;
 }
 
+.ep-tabs-container {
+  display: flex;
+  flex-direction: row;
+
+}
+
+.ep-category-tab {
+  flex-grow: 1;
+  margin: 0;
+  padding: 0px;
+}
+
 .ep-label-tab {
-  display: inline-block;
-  font-weight: 600;
-  text-align: center;
-  color: #333;
-  padding: 3px;
-  border: 1px solid transparent;
-  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  filter: grayscale(90%);
+  border-bottom: 1px solid #BCC;
 }
 
 .ep-label-tab:hover {
@@ -92,14 +92,26 @@ main {
   cursor: pointer;
 }
 
-.ep-input-tab:checked + .ep-label-tab {
-  color: #555;
-  border: 1px solid #ddd;
-  border-bottom: 2px solid orange;
+.ep-emoji-category {
+  margin: 0px;
+  background-color: #3a3;
+  text-align: center;
+  width: 22px;
+  height: 22px;
+  color: transparent;
+  background-color: rgba(0,0,0,0);
+  background-image: url("https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/20.png");
+  background-repeat: no-repeat;
+  border: none;
 }
 
-.tab {
-  display: inline-block;
+.ep-input-tab:checked + .ep-label-tab {
+  filter: none;
+  color: #555;
+  border: 1px solid #BCC;
+  border-top: 2px solid orange;
+  border-bottom: 1px solid transparent;
+  margin: -2px 0px 0px -1px;
 }
 
 .ep-search-input {
@@ -116,6 +128,6 @@ main {
 }
 
 .ep-categories-container {
-  max-height: 250px;
+  max-height: 200px;
   overflow-y: scroll;
 }
