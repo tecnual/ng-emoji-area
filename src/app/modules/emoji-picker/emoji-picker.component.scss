@@ -6,7 +6,7 @@
 
 .ep-input-container {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   width: 300px;
   border: 2px solid #bcc;
   border-radius: 0.2em;
@@ -25,6 +25,7 @@
 }
 
 #ep-input {
+  display: inline-block;
   margin: 0.5em;
   width: 100%;
   height: 100px;

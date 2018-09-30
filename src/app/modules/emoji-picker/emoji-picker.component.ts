@@ -26,8 +26,13 @@ export class EmojiPickerComponent implements OnInit {
   insertEmoji(emoji) {
     this.epInput.nativeElement.focus();
 
+    if (!this.sel) {
+    this.sel = window.getSelection();
+    }
         // IE9 and non-IE
     if (this.sel.getRangeAt && this.sel.rangeCount) {
+        this.range = this.sel.getRangeAt(0);
+        this.range.deleteContents();
 
         // Range.createContextualFragment() would be useful here but is
         // non-standard and not supported in all browsers (IE9, for one)
@@ -47,10 +52,15 @@ export class EmojiPickerComponent implements OnInit {
         const frag = document.createDocumentFragment();
         frag.appendChild(emojiEl);
         this.range.insertNode(frag);
-        this.sel.removeAllRanges();
         this.range = this.range.cloneRange();
-        this.range.setStartBefore(emojiEl.nextSibling);
+        if (emojiEl.nextSibling) {
+          this.range.setStartBefore(emojiEl.nextSibling);
+        } else {
+          this.range.setStartAfter(emojiEl);
+          this.range.setEndAfter(emojiEl);
+        }
         this.range.collapse(true);
+        this.sel.removeAllRanges();
         this.sel.addRange(this.range);
     }
     this.value = this.epInput.nativeElement.innerText;
@@ -61,8 +71,7 @@ export class EmojiPickerComponent implements OnInit {
   }
 
   inputFocusOut() {
+    this.epInput.nativeElement.focus();
     this.sel = window.getSelection();
-    this.range = this.sel.getRangeAt(0);
-    this.range.deleteContents();
   }
 }
