@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
 
 import { Emojis } from '../lib/emojis';
 import { Categories } from '../lib/categories';
@@ -12,6 +12,7 @@ import * as _ from 'underscore';
   styleUrls: ['./emoji-search.component.scss']
 })
 export class EmojiSearchComponent implements OnInit {
+  @ViewChild('epSearchInput') epSearchInput: ElementRef;
   @Output() reciveEmoji = new EventEmitter<string>();
 
   readonly emojis = Emojis;
@@ -31,7 +32,7 @@ export class EmojiSearchComponent implements OnInit {
     this.reciveEmoji.emit(emoji);
   }
 
-  scrollTo(categoryId) {
+  scrollToCat(categoryId) {
     this.onTabChecked = true;
     document.querySelector('#cat-' + categoryId).scrollIntoView({
       behavior: 'smooth',
@@ -40,7 +41,6 @@ export class EmojiSearchComponent implements OnInit {
     setTimeout(() => {
       this.onTabChecked = false;
     }, 2000);
-    // document.location.hash = '#cat-' + category;
   }
 
   filterEmojis(searchTerm) {
@@ -54,7 +54,6 @@ export class EmojiSearchComponent implements OnInit {
           return true;
         }
         if (elem.keywords) {
-          // console.log('elem.keywords.includes(searchTerm)', elem.keywords.includes(searchTerm));
           return elem.keywords.includes(searchTerm);
         } else {
           return false;

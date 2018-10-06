@@ -11,6 +11,7 @@ export class EmojiPickerComponent implements OnInit {
   @Input() rows: number;
   @Input() maxlength: number;
   @ViewChild('epInput') epInput: ElementRef;
+  @ViewChild('epHiddenText') epHiddenText: ElementRef;
 
   focusClass = 'no-focus';
   hidePicker = true;
@@ -26,12 +27,9 @@ export class EmojiPickerComponent implements OnInit {
   insertEmoji(emoji) {
     this.epInput.nativeElement.focus();
 
-    if (!this.sel) {
-    this.sel = window.getSelection();
-    }
-        // IE9 and non-IE
+    // IE9 and non-IE
     if (this.sel.getRangeAt && this.sel.rangeCount) {
-        this.range = this.sel.getRangeAt(0);
+        // this.range = this.sel.getRangeAt(0);
         this.range.deleteContents();
 
         // Range.createContextualFragment() would be useful here but is
@@ -41,13 +39,20 @@ export class EmojiPickerComponent implements OnInit {
         emojiEl.innerHTML = String.fromCodePoint(codePoint);
         emojiEl.style.backgroundImage = 'url("https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/16.png")';
         emojiEl.style.width = '18px';
+        emojiEl.style.maxWidth = '18px';
         emojiEl.style.height = '18px';
+        emojiEl.style.overflow = 'hidden';
+        emojiEl.style.textOverflow = 'clip';
+        emojiEl.style.display = 'inline-block';
+        emojiEl.style.position = 'relative';
+        emojiEl.style.top = '5px';
         emojiEl.style.backgroundPosition = (emoji.sheet[0] * -18) + 'px ' + (emoji.sheet[1] * -18) + 'px';
         emojiEl.style.backgroundColor = 'rgba(0,0,0,0)';
         emojiEl.style.color = 'rgba(0,0,0,0)';
         emojiEl.style.paddingRight = '2px';
         emojiEl.contentEditable = 'false';
         emojiEl.title = emoji.name;
+
 
         const frag = document.createDocumentFragment();
         frag.appendChild(emojiEl);
@@ -57,9 +62,9 @@ export class EmojiPickerComponent implements OnInit {
           this.range.setStartBefore(emojiEl.nextSibling);
         } else {
           this.range.setStartAfter(emojiEl);
-          this.range.setEndAfter(emojiEl);
         }
         this.range.collapse(true);
+
         this.sel.removeAllRanges();
         this.sel.addRange(this.range);
     }
@@ -68,10 +73,12 @@ export class EmojiPickerComponent implements OnInit {
 
   openEmojiPicker() {
     this.hidePicker = !this.hidePicker;
+    this.getRange();
   }
 
-  inputFocusOut() {
+  getRange() {
     this.epInput.nativeElement.focus();
     this.sel = window.getSelection();
+    this.range = this.sel.getRangeAt(0);
   }
 }

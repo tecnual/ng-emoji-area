@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core/testing';
 
 import { EmojiSearchComponent } from './emoji-search.component';
 import { Emojis } from '../lib/emojis';
@@ -32,14 +32,34 @@ describe('EmojiSearchComponent', () => {
     expect(component.emoji.name).toBe(emoji.name);
   });
 
-  it('scrollTo', () => {
-    component.scrollTo('category');
-    expect(document.location.hash).toBe('#cat-category');
-  });
+  it('scrollTo', fakeAsync(() => {
+    component.onTabChecked = true;
+    component.scrollToCat('objects');
+    tick(2100);
+    expect(component.onTabChecked).toBe(false);
+  }));
 
   it('filterEmojis', () => {
     component.filterEmojis('smile');
-    expect(component.filteredEmojis[0].emojis.length).toBe(16);
+    expect(component.filteredEmojis[0].emojis.length).toBe(17);
+    component.filterEmojis('');
+    expect(component.filteredEmojis[0].emojis.length).toBe(447);
   });
 
+  it('onScroll', () => {
+    const event = {
+      target: {
+        scrollTop: 100
+      }
+    };
+    const elem = document.getElementById('tab-people') as HTMLInputElement;
+    elem.checked = false;
+    component.onTabChecked = true;
+    component.onScroll(event);
+    expect(elem.checked).toBe(false);
+
+    component.onTabChecked = false;
+    component.onScroll(event);
+    expect(elem.checked).toBe(true);
+  });
 });

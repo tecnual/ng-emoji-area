@@ -1,10 +1,10 @@
 <div>
   <input
-    #searchInput
+    #epSearchInput
     type="text"
     class="ep-search-input"
     placeholder="Search"
-    (input)="filterEmojis(searchInput.value)"
+    (input)="filterEmojis(epSearchInput.value)"
   >
 </div>
 <main>
@@ -16,7 +16,7 @@
       type="radio"
       name="tabs"
       [value]="first ? true : false"
-      (click)="scrollTo(category.id)"
+      (click)="scrollToCat(category.id)"
       [checked]="first"
     >
     <label class="ep-label-tab" [for]="'tab-' + category.id" [title]="category.name">
@@ -29,6 +29,7 @@
   </div>
   <div
     class="ep-categories-container"
+    id="ep-categories-container"
     (scroll)="onScroll($event)"
   >
   <section

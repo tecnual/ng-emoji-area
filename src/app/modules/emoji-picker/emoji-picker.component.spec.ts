@@ -60,7 +60,6 @@ describe('EmojiPickerComponent', () => {
   });
 
   it('insertEmoji()', () => {
-    component.epInput.nativeElement.innerText = 'test';
     const rango = {
       deleteContents: function () { }
     };
@@ -68,14 +67,20 @@ describe('EmojiPickerComponent', () => {
       rangeCount: false,
       getRangeAt: function() { return rango; },
     };
-    component.epInput.nativeElement.focus();
-    // spyOn(window, 'getSelection').and.returnValue(rangeObject);
-    component.inputFocusOut();
+
+    component.epInput.nativeElement.innerText = '';
+    component.openEmojiPicker();
+    component.insertEmoji(emojisMock[1]);
+    expect(component.epInput.nativeElement.innerText).toBe('😀');
+
+    component.epInput.nativeElement.innerText = 'test';
+    component.openEmojiPicker();
     component.insertEmoji(emojisMock[1]);
     expect(component.epInput.nativeElement.innerText).toBe('😀test');
 
+
     spyOn(window, 'getSelection').and.returnValue(rangeObject);
-    component.inputFocusOut();
+    component.openEmojiPicker();
     component.insertEmoji(emojisMock[1]);
     expect(component.epInput.nativeElement.innerText).toBe('😀test');
   });
