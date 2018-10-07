@@ -1,12 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EmojiPickerComponent } from './emoji-picker.component';
+import { EmojiAreaComponent } from './emoji-area.component';
 import { EmojiSearchComponent } from './emoji-search/emoji-search.component';
 
 
 describe('EmojiPickerComponent', () => {
-  let component: EmojiPickerComponent;
-  let fixture: ComponentFixture<EmojiPickerComponent>;
+  let component: EmojiAreaComponent;
+  let fixture: ComponentFixture<EmojiAreaComponent>;
 
 
   const emojisMock = [
@@ -42,7 +42,7 @@ describe('EmojiPickerComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        EmojiPickerComponent,
+        EmojiAreaComponent,
         EmojiSearchComponent
       ]
     })
@@ -50,7 +50,7 @@ describe('EmojiPickerComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EmojiPickerComponent);
+    fixture = TestBed.createComponent(EmojiAreaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

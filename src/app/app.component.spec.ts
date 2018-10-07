@@ -1,13 +1,13 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { EmojiPickerModule } from './modules/emoji-picker/emoji-picker.module';
+import { EmojiAreaModule } from './modules/emoji-area/emoji-area.module';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
         AppComponent,
       ],
-      imports: [EmojiPickerModule]
+      imports: [EmojiAreaModule]
     }).compileComponents();
   }));
   it('should create the app', async(() => {
@@ -15,15 +15,15 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  it(`should have as title 'app'`, async(() => {
+  it(`should have as title 'ng-emoji-area'`, async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.debugElement.componentInstance;
-    expect(app.title).toEqual('ngx-emoji-picker');
+    expect(app.title).toEqual('ng-emoji-area');
   }));
   it('should render title in a h1 tag', async(() => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ngx-emoji-picker!');
+    expect(compiled.querySelector('h1').textContent).toContain('Welcome to ng-emoji-area!');
   }));
 });

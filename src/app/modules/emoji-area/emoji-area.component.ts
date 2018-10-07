@@ -1,12 +1,12 @@
 import { Component, EventEmitter, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
-  selector: 'app-emoji-picker',
-  templateUrl: './emoji-picker.component.html',
-  styleUrls: ['./emoji-picker.component.scss']
+  selector: 'app-emoji-area',
+  templateUrl: './emoji-area.component.html',
+  styleUrls: ['./emoji-area.component.scss']
 })
 
-export class EmojiPickerComponent implements OnInit {
+export class EmojiAreaComponent implements OnInit {
   @Input() cols: number;
   @Input() rows: number;
   @Input() maxlength: number;

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { EmojiPickerModule } from './modules/emoji-picker/emoji-picker.module';
+import { EmojiAreaModule } from './modules/emoji-area/emoji-area.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +10,7 @@ import { EmojiPickerModule } from './modules/emoji-picker/emoji-picker.module';
   ],
   imports: [
     BrowserModule,
-    EmojiPickerModule
+    EmojiAreaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

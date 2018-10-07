@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ngx-emoji-picker';
+  title = 'ng-emoji-area';
   text = 'Texto dentro del textarea';
 
 }

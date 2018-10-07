@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { EmojiPickerComponent } from './emoji-picker.component';
+import { EmojiAreaComponent } from './emoji-area.component';
 
 import { FormsModule } from '@angular/forms';
 import { EmojiSearchComponent } from './emoji-search/emoji-search.component';
@@ -10,7 +10,7 @@ import { EmojiSearchComponent } from './emoji-search/emoji-search.component';
     CommonModule,
     FormsModule
   ],
-  declarations: [EmojiPickerComponent, EmojiSearchComponent],
-  exports: [EmojiPickerComponent]
+  declarations: [EmojiAreaComponent, EmojiSearchComponent],
+  exports: [EmojiAreaComponent]
 })
-export class EmojiPickerModule { }
+export class EmojiAreaModule { }
