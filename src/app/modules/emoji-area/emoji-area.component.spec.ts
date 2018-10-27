@@ -68,21 +68,21 @@ describe('EmojiPickerComponent', () => {
       getRangeAt: function() { return rango; },
     };
 
-    component.epInput.nativeElement.innerText = '';
+    component.eaInput.nativeElement.innerText = '';
     component.openEmojiPicker();
     component.insertEmoji(emojisMock[1]);
-    expect(component.epInput.nativeElement.innerText).toBe('😀');
+    expect(component.eaInput.nativeElement.innerText).toBe('😀');
 
-    component.epInput.nativeElement.innerText = 'test';
+    component.eaInput.nativeElement.innerText = 'test';
     component.openEmojiPicker();
     component.insertEmoji(emojisMock[1]);
-    expect(component.epInput.nativeElement.innerText).toBe('😀test');
+    expect(component.eaInput.nativeElement.innerText).toBe('😀test');
 
 
     spyOn(window, 'getSelection').and.returnValue(rangeObject);
     component.openEmojiPicker();
     component.insertEmoji(emojisMock[1]);
-    expect(component.epInput.nativeElement.innerText).toBe('😀test');
+    expect(component.eaInput.nativeElement.innerText).toBe('😀test');
   });
   it('openEmojiPicker()', () => {
     this.hidePicker = true;

@@ -1,39 +1,39 @@
 <div>
   <input
-    #epSearchInput
+    #eaSearchInput
     type="text"
-    class="ep-search-input"
+    class="ea-search-input"
     placeholder="Search"
-    (input)="filterEmojis(epSearchInput.value)"
+    (input)="filterEmojis(eaSearchInput.value)"
   >
 </div>
 <main>
-  <div class="ep-tabs-container">
-  <div *ngFor="let category of categories; let first = first" class="ep-category-tab">
+  <div class="ea-tabs-container">
+  <div *ngFor="let category of categories; let first = first" class="ea-category-tab">
     <input
       [id]="'tab-' + category.id"
-      class="ep-input-tab"
+      class="ea-input-tab"
       type="radio"
       name="tabs"
       [value]="first ? true : false"
       (click)="scrollToCat(category.id)"
       [checked]="first"
     >
-    <label class="ep-label-tab" [for]="'tab-' + category.id" [title]="category.name">
+    <label class="ea-label-tab" [for]="'tab-' + category.id" [title]="category.name">
       <div
-        class="ep-emoji-category"
+        class="ea-emoji-category"
         [ngStyle]="{'background-position':(category.emoji.sheet[0] * -22) + 'px ' + (category.emoji.sheet[1] * -22) + 'px'}"
       ></div>
     </label>
   </div>
   </div>
   <div
-    class="ep-categories-container"
-    id="ep-categories-container"
+    class="ea-categories-container"
+    id="ea-categories-container"
     (scroll)="onScroll($event)"
   >
   <section
-    class="ep-section"
+    class="ea-section"
     *ngFor="let emojisCategory of filteredEmojis"
     [id]="'cat-' + emojisCategory.id"
     [hidden]="emojisCategory.emojis.length < 1"
@@ -42,9 +42,9 @@
       <h5>{{ emojisCategory.name }}</h5>
       <span>{{ emojisCategory.emojis.length }}</span>
     </header>
-    <div class="ep-search-emojis-container">
+    <div class="ea-search-emojis-container">
       <div
-        class="ep-emoji"
+        class="ea-emoji"
         *ngFor="let emoji of emojisCategory.emojis"
         [title]="emoji.name"
         [ngStyle]="{'background-position':(emoji.sheet[0] * -34) + 'px ' + (emoji.sheet[1] * -34) + 'px'}"

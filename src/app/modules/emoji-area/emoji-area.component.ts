@@ -2,17 +2,15 @@ import { Component, EventEmitter, OnInit, Input, ElementRef, ViewChild } from '@
 
 @Component({
   selector: 'app-emoji-area',
-  templateUrl: './emoji-area.component.html',
-  styleUrls: ['./emoji-area.component.scss']
+  templateUrl: './emoji-area.component.html'
 })
 
 export class EmojiAreaComponent implements OnInit {
   @Input() cols: number;
   @Input() rows: number;
   @Input() maxlength: number;
-  @ViewChild('epInput') epInput: ElementRef;
-  @ViewChild('epHiddenText') epHiddenText: ElementRef;
-
+  @ViewChild('eaInput') eaInput: ElementRef;
+  
   focusClass = 'no-focus';
   hidePicker = true;
   value = '';
@@ -25,7 +23,7 @@ export class EmojiAreaComponent implements OnInit {
   }
 
   insertEmoji(emoji) {
-    this.epInput.nativeElement.focus();
+    this.eaInput.nativeElement.focus();
 
     // IE9 and non-IE
     if (this.sel.getRangeAt && this.sel.rangeCount) {
@@ -37,7 +35,7 @@ export class EmojiAreaComponent implements OnInit {
         const emojiEl = document.createElement('span');
         const codePoint = parseInt(emoji.unified, 16);
         emojiEl.innerHTML = String.fromCodePoint(codePoint);
-        emojiEl.style.backgroundImage = 'url("https://unpkg.com/emoji-datasource-emojione@4.0.4/img/emojione/sheets-256/16.png")';
+        emojiEl.style.backgroundImage = 'url("/assets/img/emojione/sheets-256/16.png")';
         emojiEl.style.width = '18px';
         emojiEl.style.maxWidth = '18px';
         emojiEl.style.height = '18px';
@@ -68,7 +66,7 @@ export class EmojiAreaComponent implements OnInit {
         this.sel.removeAllRanges();
         this.sel.addRange(this.range);
     }
-    this.value = this.epInput.nativeElement.innerText;
+    this.value = this.eaInput.nativeElement.innerText;
   }
 
   openEmojiPicker() {
@@ -77,7 +75,7 @@ export class EmojiAreaComponent implements OnInit {
   }
 
   getRange() {
-    this.epInput.nativeElement.focus();
+    this.eaInput.nativeElement.focus();
     this.sel = window.getSelection();
     this.range = this.sel.getRangeAt(0);
   }

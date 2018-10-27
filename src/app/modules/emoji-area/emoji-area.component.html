@@ -1,29 +1,31 @@
-<div class="ep-container">
-  <div class="ep-input-container" [ngClass]="focusClass">
+<div class="ea-container">
+  <div class="ea-input-container" [ngClass]="focusClass">
     <div
-      class="ep-input"
-      id="ep-input"
-      #epInput
+      class="ea-input"
+      id="ea-input"
+      #eaInput
       contenteditable="true"
-      (input)="value=epInput.innerText; getRange()"
+      (input)="value=eaInput.innerText; getRange()"
       (focus)="focusClass = 'focus'"
       (blur)="focusClass = 'no-focus';"
-      (click)="this.hidePicker = true"
-    ><br/>
+      (click)="this.hidePicker = true">
+    <br/>
     </div>
-    <div class="ep-button-container"><button id="ep-picker-button" (click)="openEmojiPicker()" class="ep-picker-button"></button></div>
-    <div class="ep-picker-container">
-        <div class="item-dropdown" [hidden]="hidePicker">
+    <div class="ea-button-container">
+      <button id="ea-picker-button" (click)="openEmojiPicker()" class="ea-picker-button"></button>
+    </div>
+    <div class="ea-picker-container">
+        <div class="ea-item-dropdown" [hidden]="hidePicker">
           <app-emoji-search
-            #epEmojiSearch
-            (reciveEmoji)="insertEmoji(epEmojiSearch.emoji)"
+            #eaEmojiSearch
+            (reciveEmoji)="insertEmoji(eaEmojiSearch.emoji)"
             >
           </app-emoji-search>
         </div>
     </div>
   </div>
-  <footer class="ep-footer">
-    <div class="ep-counter">
+  <footer class="ea-footer">
+    <div class="ea-counter">
       {{ 140 - value.length }}
     </div>
   </footer>

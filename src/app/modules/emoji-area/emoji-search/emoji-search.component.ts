@@ -8,11 +8,10 @@ import * as _ from 'underscore';
 
 @Component({
   selector: 'app-emoji-search',
-  templateUrl: './emoji-search.component.html',
-  styleUrls: ['./emoji-search.component.scss']
+  templateUrl: './emoji-search.component.html'
 })
 export class EmojiSearchComponent implements OnInit {
-  @ViewChild('epSearchInput') epSearchInput: ElementRef;
+  @ViewChild('eaSearchInput') eaSearchInput: ElementRef;
   @Output() reciveEmoji = new EventEmitter<string>();
 
   readonly emojis = Emojis;

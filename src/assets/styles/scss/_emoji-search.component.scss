@@ -1,0 +1,124 @@
+.ea-search-emojis-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ea-emoji {
+  background-color: transparent;
+  background-image: url('/assets/img/emojione/sheets-256/32.png');
+  background-repeat: no-repeat;
+  height: 34px;
+  text-align: center;
+  transform: scale(.7);
+  transition: transform .2s; // Animation
+  width: 34px;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1);
+  }
+}
+
+main {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  font-weight: 400;
+  padding: 50px 0;
+  text-align: center;
+}
+
+p {
+  line-height: 1.5;
+  margin: 0 0 20px;
+}
+
+.ea-section {
+  flex-direction: column;
+  margin: 0 auto;
+
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  h5 {
+    margin: 0;
+    padding: 5px 0 10px 5px;
+  }
+
+  span {
+    color: $grey;
+    font-size: .7em;
+    padding: 5px 10px 10px 5px;
+    vertical-align: middle;
+  }
+}
+
+.ea-input-tab {
+  display: none;
+
+  &:checked + .ea-label-tab {
+    border: 1px solid $ligth-grey;
+    border-bottom: 1px solid transparent;
+    border-top: 2px solid $orange;
+    color: $grey;
+    filter: none;
+    margin: -2px 0 0 -1px;
+  }
+}
+
+.ea-tabs-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.ea-category-tab {
+  flex-grow: 1;
+}
+
+.ea-label-tab {
+  border-bottom: 1px solid $ligth-grey;
+  display: flex;
+  filter: grayscale(90%);
+  height: 100%;
+  justify-content: center;
+  width: 100%;
+
+  &:hover {
+    color: $ligth-grey;
+    cursor: pointer;
+  }
+}
+
+.ea-emoji-category {
+  background-color: transparent;
+  background-image: url('/assets/img/emojione/sheets-256/20.png');
+  background-repeat: no-repeat;
+  border: 0;
+  color: transparent;
+  height: 22px;
+  text-align: center;
+  width: 22px;
+}
+
+.ea-search-input {
+  border: 2px solid $ligth-grey;
+  border-radius: 2px;
+  margin: 10px auto;
+  padding: 5px 10px;
+
+  &:focus {
+    border: 2px solid $soft-green;
+    box-shadow: 0 0 20px $soft-purple;
+    outline: none;
+  }
+}
+
+.ea-categories-container {
+  max-height: 200px;
+  overflow-y: scroll;
+}
