@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-emoji-area',
@@ -10,7 +10,7 @@ export class EmojiAreaComponent implements OnInit {
   @Input() rows: number;
   @Input() maxlength: number;
   @ViewChild('eaInput') eaInput: ElementRef;
-  
+
   focusClass = 'no-focus';
   hidePicker = true;
   value = '';

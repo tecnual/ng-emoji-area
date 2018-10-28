@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, ViewChild, ElementRef } from '
 
 import { Emojis } from '../lib/emojis';
 import { Categories } from '../lib/categories';
-import { EmojisData, Emoji } from '../lib/data.interfaces';
+import { Emoji } from '../lib/data.interfaces';
 
 import * as _ from 'underscore';
 
@@ -20,7 +20,7 @@ export class EmojiSearchComponent implements OnInit {
   emoji: Emoji;
   visibleCategory = 'people';
   filteredEmojis = Emojis;
-  onTabChecked: Boolean = false;
+  onTabChecked: boolean = false;
 
   constructor() { }
 
