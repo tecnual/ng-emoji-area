@@ -1,13 +1,16 @@
 {
   "name": "ng-emoji-area",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "license" : "GPLv3",
   "scripts": {
     "ng": "ng",
     "start": "TS_NODE_FILES=true ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "./node_modules/.bin/compodoc -p src/tsconfig.app.json --theme readthedocs",
+    "sassdoc": "./node_modules/.bin/sassdoc src/assets/styles/scss"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +34,7 @@
     "@angular/cli": "^7.0.3",
     "@angular/compiler-cli": "^7.0.1",
     "@angular/language-service": "^7.0.1",
+    "@compodoc/compodoc": "^1.1.5",
     "@types/jasmine": "~2.8.9",
     "@types/jasminewd2": "~2.0.5",
     "@types/node": "~10.12.0",
@@ -43,6 +47,7 @@
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^1.4.0",
     "protractor": "~5.4.1",
+    "sassdoc": "^2.5.1",
     "ts-node": "~7.0.1",
     "tslint": "~5.11.0",
     "typescript": "~3.1.3"

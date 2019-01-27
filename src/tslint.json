@@ -7,7 +7,6 @@
             "app",
             "camelCase"
         ],
-        "semicolon": [true, "always"],
         "no-console": {
             "severity": "warning",
             "options": [
@@ -24,6 +23,7 @@
             "element",
             "app",
             "kebab-case"
-        ]
+        ],
+        "cyclomatic-complexity": [true, 10]
     }
 }

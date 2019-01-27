@@ -5,7 +5,7 @@
 }
 
 .ea-input-container {
-  border: 2px solid $ligth-grey;
+  border: 2px solid $light-grey;
   border-radius: .2em;
   display: flex;
   justify-content: start;
@@ -18,7 +18,7 @@
   }
 
   &.no-focus {
-    border: 2px solid $ligth-grey;
+    border: 2px solid $light-grey;
     outline: none;
   }
 }
@@ -30,6 +30,7 @@
   max-width: 400px;
   outline: none;
   overflow: auto;
+  text-align: left;
   width: 100%;
 }
 
@@ -69,7 +70,7 @@
 
 .ea-item-dropdown {
   background: $white;
-  border: 2px solid $ligth-grey;
+  border: 2px solid $light-grey;
   border-radius: .2em;
   position: absolute;
   right: 0;

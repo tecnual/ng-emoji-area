@@ -1,11 +1,26 @@
-// Variables
-@import 'variables';
+$version: 'v1.1.0';
+////
+/// ng-emoji-area
+/// License GPLv3
+/// @group General
+/// @author Pedro Macías (@tecnual)
+///
+////
 
-// Components
-@import 'app.component';
-@import 'emoji-area.component';
-@import 'emoji-search.component';
-
+///
+/// html global styles
+///
 html {
   font-family: 'Roboto', sans-serif;
 }
+
+/// Variables
+@import 'variables';
+
+/// Landing page
+@import 'landing.page';
+
+/// Components
+@import 'app.component';
+@import 'emoji-area.component';
+@import 'emoji-search.component';

@@ -4,8 +4,6 @@ import { Emojis } from '../lib/emojis';
 import { Categories } from '../lib/categories';
 import { Emoji } from '../lib/data.interfaces';
 
-import * as _ from 'underscore';
-
 @Component({
   selector: 'app-emoji-search',
   templateUrl: './emoji-search.component.html'
@@ -20,7 +18,7 @@ export class EmojiSearchComponent implements OnInit {
   emoji: Emoji;
   visibleCategory = 'people';
   filteredEmojis = Emojis;
-  onTabChecked: boolean = false;
+  onTabChecked: Boolean = false;
 
   constructor() { }
 
@@ -33,9 +31,13 @@ export class EmojiSearchComponent implements OnInit {
 
   scrollToCat(categoryId) {
     this.onTabChecked = true;
-    document.querySelector('#cat-' + categoryId).scrollIntoView({
-      behavior: 'smooth',
-      block: 'start'
+    const target = document.getElementById('cat-' + categoryId) as HTMLInputElement;
+    const container = document.getElementById('ea-categories-container') as HTMLInputElement;
+    const top = (target.offsetTop - 90);
+    container.scrollTo({
+      top: top,
+      left: 0,
+      behavior: 'smooth'
     });
     setTimeout(() => {
       this.onTabChecked = false;

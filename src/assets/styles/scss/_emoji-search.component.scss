@@ -62,7 +62,7 @@ p {
   display: none;
 
   &:checked + .ea-label-tab {
-    border: 1px solid $ligth-grey;
+    border: 1px solid $light-grey;
     border-bottom: 1px solid transparent;
     border-top: 2px solid $orange;
     color: $grey;
@@ -81,7 +81,7 @@ p {
 }
 
 .ea-label-tab {
-  border-bottom: 1px solid $ligth-grey;
+  border-bottom: 1px solid $light-grey;
   display: flex;
   filter: grayscale(90%);
   height: 100%;
@@ -89,7 +89,7 @@ p {
   width: 100%;
 
   &:hover {
-    color: $ligth-grey;
+    color: $light-grey;
     cursor: pointer;
   }
 }
@@ -106,7 +106,7 @@ p {
 }
 
 .ea-search-input {
-  border: 2px solid $ligth-grey;
+  border: 2px solid $light-grey;
   border-radius: 2px;
   margin: 10px auto;
   padding: 5px 10px;

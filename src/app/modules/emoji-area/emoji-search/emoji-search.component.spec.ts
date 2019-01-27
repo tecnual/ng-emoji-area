@@ -2,7 +2,6 @@ import { async, ComponentFixture, TestBed, fakeAsync, tick } from '@angular/core
 
 import { EmojiSearchComponent } from './emoji-search.component';
 import { Emojis } from '../lib/emojis';
-import { EmojiData } from '../lib/data.interfaces';
 
 describe('EmojiSearchComponent', () => {
   let component: EmojiSearchComponent;
@@ -52,12 +51,12 @@ describe('EmojiSearchComponent', () => {
         scrollTop: 100
       }
     };
+    component.filterEmojis('smile');
     const elem = document.getElementById('tab-people') as HTMLInputElement;
     elem.checked = false;
     component.onTabChecked = true;
     component.onScroll(event);
     expect(elem.checked).toBe(false);
-
     component.onTabChecked = false;
     component.onScroll(event);
     expect(elem.checked).toBe(true);

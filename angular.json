@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ngx-emoji-picker": {
+    "ng-emoji-area": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ngx-emoji-picker",
+            "outputPath": "dist/ng-emoji-area",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ngx-emoji-picker:build"
+            "browserTarget": "ng-emoji-area:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ngx-emoji-picker:build:production"
+              "browserTarget": "ng-emoji-area:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ngx-emoji-picker:build"
+            "browserTarget": "ng-emoji-area:build"
           }
         },
         "test": {
@@ -72,7 +72,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": [],
             "assets": [
@@ -95,7 +95,7 @@
         }
       }
     },
-    "ngx-emoji-picker-e2e": {
+    "ng-emoji-area-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-emoji-picker:serve"
+            "devServerTarget": "ng-emoji-area:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ngx-emoji-picker:serve:production"
+              "devServerTarget": "ng-emoji-area:serve:production"
             }
           }
         },

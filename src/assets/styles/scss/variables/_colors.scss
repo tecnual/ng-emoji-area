@@ -1,10 +1,30 @@
-$white: #fff;
+////
+/// Colors
+/// @group Colors
+////
 
-$ligth-grey: #bcc;
+/// Whites
+
+/// White
+$white: #fff;
+///
+$soft-white: #e5e5e5;
+
+///
+$black-st: rgba(0, 0, 0, .85);
+
+/// Grey range
+$dark-grey: #333;
+/// Light Grey
+$light-grey: #bcc;
+///
 $grey: #777;
 
+///
 $soft-green: #0aa;
-
+///
 $soft-purple: #79c;
-
+///
 $orange: #fa0;
+///
+$almost-transparent: rgba(255, 255, 255, .1);

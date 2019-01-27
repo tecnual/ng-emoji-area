@@ -1,0 +1,82 @@
+////
+/// This is a poster comment.
+/// It will apply annotations to all items from file.
+/// @group landing page
+////
+
+///
+.container {
+  max-width: 960px;
+}
+
+///
+/// Custom translucent site header
+///
+.site-header {
+  backdrop-filter: saturate(180%) blur(20px);
+  background-color: $black-st;
+
+  a {
+    color: $light-grey;
+    transition: ease-in-out color .2s;
+
+    &:hover {
+      color: $white;
+      text-decoration: none;
+    }
+  }
+}
+
+///
+/// Dummy devices (replace them with your own or something else entirely!)
+///
+.product-device {
+  background-color: $dark-grey;
+  border-radius: 21px;
+  bottom: -30%;
+  height: 540px;
+  position: absolute;
+  right: 10%;
+  transform: rotate(30deg);
+  width: 300px;
+
+  &::before {
+    background-color: $almost-transparent;
+    background-image: url('/assets/img/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 5px;
+    bottom: 10%;
+    content: '';
+    filter: opacity(80%);
+    left: 10px;
+    position: absolute;
+    right: 10px;
+    top: 10%;
+  }
+}
+
+///
+.product-device-2 {
+  background-color: $soft-white;
+  bottom: 0;
+  left: 5%;
+  right: auto;
+  top: -25%;
+}
+
+/// Extra utilities
+.flex-equal > * {
+  flex: 1;
+}
+
+/// Media query
+@media (min-width: 768px) {
+  .flex-md-equal > * {
+    flex: 1;
+  }
+}
+
+///
+.overflow-hidden { overflow: hidden; }

@@ -4,7 +4,7 @@ import { EmojiAreaComponent } from './emoji-area.component';
 import { EmojiSearchComponent } from './emoji-search/emoji-search.component';
 
 
-describe('EmojiPickerComponent', () => {
+describe('EmojiAreaComponent', () => {
   let component: EmojiAreaComponent;
   let fixture: ComponentFixture<EmojiAreaComponent>;
 

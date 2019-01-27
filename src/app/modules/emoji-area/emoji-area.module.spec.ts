@@ -1,6 +1,6 @@
 import { EmojiAreaModule } from './emoji-area.module';
 
-describe('EmojiPickerModule', () => {
+describe('EmojiAreaModule', () => {
   let emojiAreaModule: EmojiAreaModule;
 
   beforeEach(() => {
